@@ -1,6 +1,5 @@
 import React from "react";
-import { useSelector } from 'react-redux';
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 import { deleteTask } from "../features/tasks/tasksSlice";
 import { Link } from "react-router-dom";
 
@@ -16,8 +15,8 @@ const TasksList = () => {
         <div>
             <header>
                 <h1>TasksList</h1>
-                <Link href={'/create-task'}>
-                    Create task
+                <Link to={'/create-task'}>
+                    <button>Create task</button>
                 </Link>
             </header>
             {
@@ -27,7 +26,7 @@ const TasksList = () => {
                             <h3>{title}</h3>
                             <p>{description}</p>
                             <button onClick={() => handleDelete(id)}>Delete</button>
-                            <Link href={`/edit-task/${id}`}>
+                            <Link to={`/edit-task/${id}`}>
                                 <button>Edit</button>
                             </Link>
                         </div>
